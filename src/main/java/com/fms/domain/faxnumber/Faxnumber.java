@@ -1,11 +1,14 @@
 package com.fms.domain.faxnumber;
 
 import com.fms.domain.BaseEntity;
+import com.fms.domain.faxnumberuser.FaxnumberUser;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter @NoArgsConstructor
 @Entity
@@ -19,6 +22,9 @@ public class Faxnumber extends BaseEntity {
 
     @Column(length = 100)
     private String description;
+
+    @OneToMany(mappedBy = "faxnumber")
+    private List<FaxnumberUser> faxnumberUserList = new ArrayList<>();
 
     @Builder
     public Faxnumber(String number, String description){

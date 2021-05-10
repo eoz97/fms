@@ -16,13 +16,14 @@ public class FaxnumberUser extends BaseEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="faxnumber_id")
     private Faxnumber faxnumber;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
 
     @Builder
     public FaxnumberUser(Faxnumber faxnumber, User user){
